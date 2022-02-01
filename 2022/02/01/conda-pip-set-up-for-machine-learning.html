@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Setting up an Environment for Machine Learning with Conda &amp; Pip-Tools | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Setting up an Environment for Machine Learning with Conda &amp; Pip-Tools" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://enkrateialucca.github.io/lucas_soares_learning/2022/02/01/conda-pip-set-up-for-machine-learning.html" />
+<meta property="og:url" content="https://enkrateialucca.github.io/lucas_soares_learning/2022/02/01/conda-pip-set-up-for-machine-learning.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-01T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Setting up an Environment for Machine Learning with Conda &amp; Pip-Tools" />
+<script type="application/ld+json">
+{"url":"https://enkrateialucca.github.io/lucas_soares_learning/2022/02/01/conda-pip-set-up-for-machine-learning.html","@type":"BlogPosting","headline":"Setting up an Environment for Machine Learning with Conda &amp; Pip-Tools","dateModified":"2022-02-01T00:00:00-06:00","datePublished":"2022-02-01T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://enkrateialucca.github.io/lucas_soares_learning/2022/02/01/conda-pip-set-up-for-machine-learning.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/lucas_soares_learning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://enkrateialucca.github.io/lucas_soares_learning/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/lucas_soares_learning/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/lucas_soares_learning/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/lucas_soares_learning/about/">About Me</a><a class="page-link" href="/lucas_soares_learning/search/">Search</a><a class="page-link" href="/lucas_soares_learning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Setting up an Environment for Machine Learning with Conda &amp; Pip-Tools</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-01T00:00:00-06:00" itemprop="datePublished">
+        Feb 1, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/EnkrateiaLucca/lucas_soares_learning/tree/master/_notebooks/2022-02-01-conda-pip-set-up-for-machine-learning.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/lucas_soares_learning/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/EnkrateiaLucca/lucas_soares_learning/master?filepath=_notebooks%2F2022-02-01-conda-pip-set-up-for-machine-learning.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/lucas_soares_learning/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/EnkrateiaLucca/lucas_soares_learning/blob/master/_notebooks/2022-02-01-conda-pip-set-up-for-machine-learning.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/lucas_soares_learning/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FEnkrateiaLucca%2Flucas_soares_learning%2Fblob%2Fmaster%2F_notebooks%2F2022-02-01-conda-pip-set-up-for-machine-learning.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/lucas_soares_learning/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-02-01-conda-pip-set-up-for-machine-learning.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- source: https://github.com/full-stack-deep-learning/conda-piptools?utm_source=pocket_mylist   -->
+
+<p>Setting up a robust and deterministic environment for machine learning development can sometimes be a bit confusing if we don't set some ground rules in the beggining.</p>
+<p>In this article, I want to go through how to set up a robust development environment for machine learning that faciliatates managing dependencies and guarantees compatibility between the development and production stage throughout the life cycle of that project.</p>
+<p>The idea is to start from scratch and end with a folder containing some basic machine learning code and the entire environment set up
+configured from start to finish.</p>
+<p><strong><em>Disclaimer:</em></strong> the contents of this article were written using the following main resources:</p>
+<ul>
+<li><a href="https://github.com/full-stack-deep-learning/conda-piptools">https://github.com/full-stack-deep-learning/conda-piptools</a></li>
+<li><a href="https://github.com/full-stack-deep-learning/fsdl-text-recognizer-project">https://github.com/full-stack-deep-learning/fsdl-text-recognizer-project</a></li>
+<li><a href="https://github.com/jazzband/pip-tools">https://github.com/jazzband/pip-tools</a></li>
+</ul>
+<p>Mainly I learned a lot from the course taught by the <a href="https://fullstackdeeplearning.com/">"Full Stack Deep Learning course</a>, which besides being the main resource for learning this set up, has been my reference guide for all topics related to practical machine learning, so I strongly recommend you check them out!</p>
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Steps">Steps<a class="anchor-link" href="#Steps"> </a></h1><ol>
+<li><p><strong>Set up Anaconda</strong></p>
+</li>
+<li><p><strong>Create virtual environment and install the dependencies</strong></p>
+</li>
+<li><strong>Export the environment to an <code>environment.yml</code> file</strong></li>
+<li><strong>Create the requirements files and add our dependencies for development and production</strong></li>
+<li><strong>Write a MakeFile</strong></li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Set-up-Anaconda">1. Set up Anaconda<a class="anchor-link" href="#1.-Set-up-Anaconda"> </a></h2><ul>
+<li><p><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#starting-conda">Set up anaconda</a></p>
+</li>
+<li><p>Confirm conda version with: <code>conda -V</code>
+In my case I get: <code>conda 4.10.3</code></p>
+</li>
+<li><p>Update conda to the current version: <code>conda update conda</code></p>
+</li>
+</ul>
+<p>In my case I get: <code>conda 4.11.0</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Create-virtual-environment-and-install-the-dependencies">2. Create virtual environment and install the dependencies<a class="anchor-link" href="#2.-Create-virtual-environment-and-install-the-dependencies"> </a></h2><p>In the case of this project I will use a <code>pytorch</code> example so I will create the environment with the necessary cudatoolkit first like this:</p>
+
+<pre><code>conda create -n setup_ml_env python==3.7 cudatoolkit=10.2 cudnn=7.6</code></pre>
+<p>Now we activate the environment by running:</p>
+
+<pre><code>conda activate setup_ml_env</code></pre>
+<p>And, we test the installation by running:</p>
+
+<pre><code>python -V</code></pre>
+<p>Expected output:</p>
+
+<pre><code>Python 3.7.11</code></pre>
+<h2 id="3.-Export-the-environment-to-an-environment.yml-file">3. Export the environment to an <code>environment.yml</code> file<a class="anchor-link" href="#3.-Export-the-environment-to-an-environment.yml-file"> </a></h2>
+<pre><code>`conda env export --from-history &gt; environment.yml`</code></pre>
+<p>The <code>--from-history</code> command makes sure that you only add to the environment.yml file the packages you actually installed so far (in this case just the
+<code>cudatoolkit</code> package).</p>
+<p>Let's add to this file <code>pip</code> and <code>pip-tools</code> to use later for installing
+our Python packages and then we can print out the contents of the file to check:</p>
+
+<pre><code>cat environment.yml</code></pre>
+<p>Expected output:</p>
+
+<pre><code>name: setup_ml_env
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - cudatoolkit=10.2
+  - cudnn=7.6
+  - pip
+  - pip:
+    - pip-tools
+prefix: path/to/setup_ml_env</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production">4. Create the requirements files and add our dependencies for development and production<a class="anchor-link" href="#4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production"> </a></h1><p>In a linux terminal:</p>
+
+<pre><code>mkdir requirements
+touch requirements/dev.in
+touch requirements/prod.in</code></pre>
+<p>Inside the <code>dev.in</code> file we write:</p>
+
+<pre><code>-c prod.txt
+mypy
+black</code></pre>
+<p>Here the <code>-c prod.txt</code> will constrain the development packages to the packages specified in the production requirements that will be generated from the <code>prod.in</code> file.</p>
+<p>Inside the <code>prod.in</code> file write:</p>
+
+<pre><code>torch
+numpy</code></pre>
+<p>This is just an illustrative example of toy project using the <code>torch</code> and <code>numpy</code> packages.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.-Write-a-MakeFile">5. Write a MakeFile<a class="anchor-link" href="#5.-Write-a-MakeFile"> </a></h1><p>The makefile for our project will contain:</p>
+
+<pre><code># Command to print all the other targets, from https://stackoverflow.com/a/26339924
+help:
+    @$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2&gt;/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'</code></pre>
+<p>The <code>help</code> command prints all available commands for our makefile.</p>
+
+<pre><code># Install exact Python and CUDA versions
+conda-update:
+    conda env update --prune -f environment.yml
+    echo "Activate your environment with: conda activate setup_ml_env"</code></pre>
+<p>Here is the makefile command for updating our environment everytime we modify the <code>environment.yml</code> file.</p>
+
+<pre><code># Compile and install exact pip packages
+pip-tools:
+    pip install pip-tools
+    pip-compile requirements/prod.in &amp;&amp; pip-compile requirements/dev.in
+    pip-sync requirements/prod.txt requirements/dev.txt</code></pre>
+<p>The <code>pip-tools</code> command to compile and install mutually compatible versions of all requirements. 
+I won't cover linting here to avoid introducing more complexity to this article.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As described in the <a href="https://github.com/full-stack-deep-learning/fsdl-text-recognizer-project/blob/master/setup.md">repo of the full stack deep learning course</a> using pip-tools allows us to:</p>
+<ul>
+<li><p>Separate out dev from production dependencies (<code>dev.in</code> vs <code>prod.in</code>).</p>
+</li>
+<li><p>Have a lockfile of exact versions for all dependencies (the auto-generated <code>dev.txt</code> and <code>prod.txt</code>).</p>
+</li>
+<li><p>Allow us to easily deploy to targets that may not support the conda environment.</p>
+</li>
+</ul>
+<p>If you add, remove, or need to update versions of some requirements, edit the .in files, and simply run <code>make pip-tools</code> again.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Concluding-Thoughts">Concluding Thoughts<a class="anchor-link" href="#Concluding-Thoughts"> </a></h3><p>At the beggining of my machine learning career I was just installing packages and running code, without considering the negative implications of things like dependency issues and what not.</p>
+<p>Now, even thought there might still be things that I am missing, I feel like this approach attempts to cover the holes in the naive approach to developing a machine learning project.</p>
+<ul>
+<li>environment.yml specifies python and optionally cuda/cudnn</li>
+<li>make conda-update creates/updates the conda env</li>
+<li><code>requirements/prod.in</code> and <code>requirements/dev.in</code> specify python package requirements</li>
+<li><code>make pip-tools</code> resolves and install all Python packages</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you liked this post, consider joining me on <a href="https://lucas-soares.medium.com/membership">Medium</a>. Also, <a href="https://www.youtube.com/channel/UCu8WF59Scx9f3H1N_FgZUwQ">subscribe to my youtube channel</a>. Thanks and see you next time! :)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/lucas_soares_learning/2022/02/01/conda-pip-set-up-for-machine-learning.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/lucas_soares_learning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/lucas_soares_learning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/lucas_soares_learning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/lucas_soares_learning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/lucas_soares_learning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
