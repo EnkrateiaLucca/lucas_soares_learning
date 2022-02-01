@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-permalink: https://enkrateialucca.github.io/
+permalink: /about/
 ---
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
