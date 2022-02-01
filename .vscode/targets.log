@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb  1 18:17:29 2022
+# Make data base, printed on Tue Feb  1 20:10:02 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8a7b9238-ab38-4a59-839d-93540e529a30.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cb0b448f-b2a2-4b15-8a57-bddb1b3f3c14.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/pop.mandatory.path
 # environment
@@ -279,6 +279,7 @@ GDMSESSION = pop
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
 # variable set hash-table stats:
+ 
 # Load=133/1024=13%, Rehash=0, Collisions=14/163=9%
 
 # Pattern-specific Variable Values
@@ -287,7 +288,6 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
- 
 # . (device 64769, inode 41157502): 27 files, no impossibilities.
 
 # 27 files, no impossibilities in 1 directories.
@@ -424,6 +424,6 @@ remove: .FORCE
 # strcache performance: lookups = 70 / hit rate = 37%
 # hash-table stats:
 # Load=44/8192=1%, Rehash=0, Collisions=0/70=0%
-# Finished Make data base on Tue Feb  1 18:17:29 2022
+# Finished Make data base on Tue Feb  1 20:10:02 2022
 
  
