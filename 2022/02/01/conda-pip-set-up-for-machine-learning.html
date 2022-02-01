@@ -129,10 +129,14 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <!-- source: https://github.com/full-stack-deep-learning/conda-piptools?utm_source=pocket_mylist   -->
 
-<p>Setting up a robust and deterministic environment for machine learning development can sometimes be a bit confusing if we don't set some ground rules in the beggining.</p>
-<p>In this article, I want to go through how to set up a robust development environment for machine learning that faciliatates managing dependencies and guarantees compatibility between the development and production stage throughout the life cycle of that project.</p>
-<p>The idea is to start from scratch and end with a folder containing some basic machine learning code and the entire environment set up
-configured from start to finish.</p>
+<p>Setting up a robust and deterministic environment for machine learning projects can sometimes be a bit confusing if we don't set some ground rules in the beggining.</p>
+<p><strong><em>In this article, I want to go through how to set up a robust development environment for machine learning that faciliatates managing dependencies and guarantees compatibility between the development and production stage throughout the life cycle of that project.</em></strong></p>
+<p>The idea is to start from scratch and end with a folder containing:</p>
+<ul>
+<li>An <code>environment.yml</code> file specifying our Python and cuda/cudnn versions</li>
+<li>A <code>dev.in</code> and <code>prod.in</code> files specifying the development and production package requirements respectively </li>
+<li>A <code>Makefile</code> containing commands to automatically update our environment everytime we modify the <code>environment.yml</code> file or change the packages in the <code>.in</code> files</li>
+</ul>
 <p><strong><em>Disclaimer:</em></strong> the contents of this article were written using the following main resources:</p>
 <ul>
 <li><a href="https://github.com/full-stack-deep-learning/conda-piptools">https://github.com/full-stack-deep-learning/conda-piptools</a></li>
@@ -282,10 +286,10 @@ I won't cover linting here to avoid introducing more complexity to this article.
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Concluding-Thoughts">Concluding Thoughts<a class="anchor-link" href="#Concluding-Thoughts"> </a></h3><p>At the beggining of my machine learning career I was just installing packages and running code, without considering the negative implications of things like dependency issues and what not.</p>
-<p>Now, even thought there might still be things that I am missing, I feel like this approach attempts to cover the holes in the naive approach to developing a machine learning project.</p>
+<p>Now, even tough there might still be things that I am missing, I feel like this approach attempts to cover the holes in the naive approach to developing a machine learning project.</p>
 <ul>
-<li>environment.yml specifies python and optionally cuda/cudnn</li>
-<li>make conda-update creates/updates the conda env</li>
+<li><code>environment.yml</code> specifies python and optionally cuda/cudnn</li>
+<li><code>make conda-update</code> creates/updates the conda environment</li>
 <li><code>requirements/prod.in</code> and <code>requirements/dev.in</code> specify python package requirements</li>
 <li><code>make pip-tools</code> resolves and install all Python packages</li>
 </ul>
