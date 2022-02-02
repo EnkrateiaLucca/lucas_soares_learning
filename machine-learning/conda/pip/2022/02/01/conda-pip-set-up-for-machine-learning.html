@@ -236,7 +236,7 @@ In my case I get: <code>conda 4.10.3</code></p>
 <h2 id="3.-Export-the-environment-to-an-environment.yml-file">3. Export the environment to an <code>environment.yml</code> file<a class="anchor-link" href="#3.-Export-the-environment-to-an-environment.yml-file"> </a></h2>
 <pre><code>`conda env export --from-history &gt; environment.yml`</code></pre>
 <p>The <code>--from-history</code> command makes sure that you only add to the <code>environment.yml</code> file the packages you actually installed so far (in this case just the
-<code>cudatoolkit</code> package).</p>
+<code>cudatoolkit</code> and <code>cudnn</code> packages).</p>
 <p>Let's add to this file <code>pip</code> and <code>pip-tools</code> to use later for installing
 our Python packages and then we can print out the contents of the file to check:</p>
 
