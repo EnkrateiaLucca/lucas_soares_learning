@@ -168,7 +168,7 @@ window.onload = wrap_img;
 <!-- source: https://github.com/full-stack-deep-learning/conda-piptools?utm_source=pocket_mylist   -->
 
 <p>Setting up a robust and deterministic environment for machine learning projects can sometimes be a bit confusing if we don't set some ground rules in the beggining.</p>
-<p><strong><em>In this article, I want to go through how to set up a robust development environment for machine learning that faciliatates managing dependencies and guarantees compatibility between the development and production stage throughout the life cycle of that project.</em></strong></p>
+<p><strong><em>In this article, I want to go through how to set up a robust development environment for machine learning that facilitates managing dependencies and guarantees compatibility between the development and production stage throughout the life cycle of that project.</em></strong></p>
 <p>The idea is to start from scratch and end with a folder containing:</p>
 <ul>
 <li>An <code>environment.yml</code> file specifying our Python and cuda/cudnn versions</li>
@@ -198,6 +198,7 @@ window.onload = wrap_img;
 <li><strong>Create the requirements files and add our dependencies for development and production</strong></li>
 <li><strong>Write a MakeFile</strong></li>
 </ol>
+<hr />
 
 </div>
 </div>
@@ -234,7 +235,7 @@ In my case I get: <code>conda 4.10.3</code></p>
 <pre><code>Python 3.7.11</code></pre>
 <h2 id="3.-Export-the-environment-to-an-environment.yml-file">3. Export the environment to an <code>environment.yml</code> file<a class="anchor-link" href="#3.-Export-the-environment-to-an-environment.yml-file"> </a></h2>
 <pre><code>`conda env export --from-history &gt; environment.yml`</code></pre>
-<p>The <code>--from-history</code> command makes sure that you only add to the environment.yml file the packages you actually installed so far (in this case just the
+<p>The <code>--from-history</code> command makes sure that you only add to the <code>environment.yml</code> file the packages you actually installed so far (in this case just the
 <code>cudatoolkit</code> package).</p>
 <p>Let's add to this file <code>pip</code> and <code>pip-tools</code> to use later for installing
 our Python packages and then we can print out the contents of the file to check:</p>
@@ -259,7 +260,7 @@ prefix: path/to/setup_ml_env</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production">4. Create the requirements files and add our dependencies for development and production<a class="anchor-link" href="#4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production"> </a></h1><p>In a linux terminal:</p>
+<h2 id="4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production">4. Create the requirements files and add our dependencies for development and production<a class="anchor-link" href="#4.-Create-the-requirements-files-and-add-our-dependencies-for-development-and-production"> </a></h2><p>In a linux terminal:</p>
 
 <pre><code>mkdir requirements
 touch requirements/dev.in
@@ -281,7 +282,7 @@ numpy</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="5.-Write-a-MakeFile">5. Write a MakeFile<a class="anchor-link" href="#5.-Write-a-MakeFile"> </a></h1><p>The makefile for our project will contain:</p>
+<h2 id="5.-Write-a-MakeFile">5. Write a MakeFile<a class="anchor-link" href="#5.-Write-a-MakeFile"> </a></h2><p>The makefile for our project will contain:</p>
 
 <pre><code># Command to print all the other targets, from https://stackoverflow.com/a/26339924
 help:
