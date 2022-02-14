@@ -1,4 +1,16 @@
 # Advanced Google Search for Machine Learning
+> "Advanced Google Search for Machine Learning"
+- toc: false
+- branch: master
+- badges: true
+- comments: true
+- categories: [machine-learning, conda, pip]
+- image: images/cover_google_search_ml.png
+
+- hide: false
+- search_exclude: true
+- metadata_key1: metadata_value1
+- metadata_key2: metadata_value2
 
 Searching on Google is one of the most important tasks in any development workflow. 
 It's the central skill for anyone looking practice their coding skills in any development job, be it machine learning or otherwise.
