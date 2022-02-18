@@ -32,14 +32,6 @@
   
 
   
-      ,"page7": {
-          "title": "<a href="https://www.youtube.com/channel/UCu8WF59Scx9f3H1N_FgZUwQ">Youtube</a>",
-          "content": "",
-          "url": "https://enkrateialucca.github.io/lucas_soares_learning/_pages/youtube.html",
-          "relUrl": "/_pages/youtube.html",
-          "date": ""
-      }
-      
   
 
   
@@ -49,10 +41,7 @@
   
 
   
-  
-
-  
-      ,"page11": {
+      ,"page10": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://enkrateialucca.github.io/lucas_soares_learning/robots.txt",
