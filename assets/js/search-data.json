@@ -33,10 +33,10 @@
 
   
       ,"page7": {
-          "title": "About Me",
+          "title": "<a href="https://www.youtube.com/channel/UCu8WF59Scx9f3H1N_FgZUwQ">Youtube</a>",
           "content": "",
-          "url": "https://enkrateialucca.github.io/lucas_soares_learning/https:/www.youtube.com/channel/UCu8WF59Scx9f3H1N_FgZUwQ",
-          "relUrl": "/https:/www.youtube.com/channel/UCu8WF59Scx9f3H1N_FgZUwQ",
+          "url": "https://enkrateialucca.github.io/lucas_soares_learning/_pages/youtube.html",
+          "relUrl": "/_pages/youtube.html",
           "date": ""
       }
       
